@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 // use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 
@@ -30,13 +31,17 @@ class authController extends Controller
             'email' => 'required|string|email|unique:users|max:255',
             'password' => 'required|string|min:8|confirmed',
             'role' => 'required|in:seller,buyer',
+            'no_hp' => 'required|numeric',
+            'alamat' => 'nullable|string'
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password), // Password has to be hashed on register!
             'role' => $request->role,
+            'no_hp' => $request->no_hp,
+            'alamat' => $request->alamat,
         ]);
 
         return redirect()->route('login')->with('success', 'Register Success, Please Login');
