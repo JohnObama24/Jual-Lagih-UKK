@@ -9,6 +9,45 @@ use Illuminate\Support\Facades\Storage;
 
 class productController extends Controller
 {
+    // ─── Buyer ───────────────────────────────────────────────
+
+    public function showBuyerHome()
+    {
+        $products = Product::query()
+            ->where('stock', '>', 0)
+            ->with('seller')
+            ->latest()
+            ->limit(8)
+            ->get();
+
+        return view('buyer.home', compact('products'));
+    }
+
+    public function showBuyerProduct(Request $request)
+    {
+        $products = Product::query()
+            ->where('stock', '>', 0)
+            ->with('seller')
+            ->when($request->search, fn($q) => $q->where('name', 'like', '%' . $request->search . '%'))
+            ->latest()
+            ->paginate(12);
+
+        return view('buyer.products.index', compact('products'));
+    }
+
+    public function showBuyerProductDetail(Product $product)
+    {
+        $product->load('seller');
+        return view('buyer.products.show', compact('product'));
+    }
+
+    // ─── Seller ──────────────────────────────────────────────
+
+    public function sellerDashboard()
+    {
+        return view('seller.dashboard');
+    }
+
     public function showSellerProduct()
     {
         $products = auth()
@@ -20,16 +59,6 @@ class productController extends Controller
         return view('seller.products.index', compact('products'));
     }
 
-public function showBuyerProduct()
-{
-    $products = Product::query()
-        ->where('stock', '>', 0)
-        ->with('seller')
-        ->latest()
-        ->paginate(12);
-
-    return view('buyer.products.index', compact('products'));
-}
 
     public function create()
     {

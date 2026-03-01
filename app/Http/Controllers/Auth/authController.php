@@ -4,23 +4,19 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-// use Illuminate\Container\Attributes\Auth;
-use Illuminate\Http\Request;
 
 class authController extends Controller
 {
-    //
-
-    public function ShowLogin()
-    {
-        return view('auth.login');
-    }
-
     public function showRegister()
     {
         return view('auth.register');
+    }
+    public function showLogin()
+    {
+        return view('auth.login');
     }
 
     public function register(Request $request)
@@ -38,7 +34,7 @@ class authController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password), // Password has to be hashed on register!
+            'password' => Hash::make($request->password),
             'role' => $request->role,
             'no_hp' => $request->no_hp,
             'alamat' => $request->alamat,
@@ -68,5 +64,15 @@ class authController extends Controller
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
+    }
+    
+    public function Logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }

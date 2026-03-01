@@ -13,7 +13,13 @@ class profileController extends Controller
     public function edit()
     {
         $user = auth()->user();
-        return view('profile.edit', compact('user'));
+        return view('buyer.profile.edit', compact('user'));
+    }
+
+    public function sellerEdit()
+    {
+        $user = auth()->user();
+        return view('seller.profile.edit', compact('user'));
     }
 
     public function update(Request $request)

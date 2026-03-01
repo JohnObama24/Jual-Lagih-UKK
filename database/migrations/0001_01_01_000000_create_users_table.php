@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->enum('role', ["seller","buyer"]);
             $table->text('alamat')->nullable();
-            $table->integer('no_hp');
+            $table->string('no_hp', 20);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

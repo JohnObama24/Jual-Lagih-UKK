@@ -12,25 +12,18 @@ use App\Models\Product;
 
 class cartController extends Controller
 {
-    //
-
     public function addToCart($productId)
     {
-
         $user = Auth()->user();
-
         $product = Product::findOrFail($productId);
 
         DB::beginTransaction();
-
         try {
-            $cart = Cart::firstOrCreate([
-                'user_id' => $user->id
-            ]);
+            $cart = Cart::firstOrCreate(['user_id' => $user->id]);
 
             $cartItem = CartItem::where([
                 'cart_id' => $cart->id,
-                'product_id' => $product->id
+                'product_id' => $product->id,
             ])->first();
 
             if ($cartItem) {
@@ -39,38 +32,39 @@ class cartController extends Controller
                 CartItem::create([
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
-                    'quantity' => 1
+                    'quantity' => 1,
                 ]);
             }
 
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->with('error', 'Gagal menambahkan ke cart');
+            return back()->with('error', 'Gagal menambahkan ke keranjang');
         }
 
+        return back()->with('success', 'Produk berhasil ditambahkan ke keranjang!');
     }
-
-
 
     public function showCart()
     {
         $user = Auth()->user();
 
-        $cart = Cart::where('user_id', $user->id);
+        $cart = Cart::where('user_id', $user->id)
+            ->with('cartItems.product.seller')
+            ->first();
 
-        if (!cart) {
-            return redirect()->route('cart.index')->with('error', 'Cart not found');
-        }
         return view('buyer.cart.index', compact('cart'));
     }
 
     public function updateQuantity(Request $request, $cartItemId)
     {
         $cartItem = CartItem::findOrFail($cartItemId);
-        $cartItem->update([
-            'quantity' => $request->quantity
+
+        $request->validate([
+            'quantity' => 'required|integer|min:1',
         ]);
+
+        $cartItem->update(['quantity' => $request->quantity]);
 
         return back();
     }
@@ -78,8 +72,6 @@ class cartController extends Controller
     public function remove($cartItemId)
     {
         CartItem::destroy($cartItemId);
-
-        return back();
+        return back()->with('success', 'Item berhasil dihapus dari keranjang.');
     }
-
 }
