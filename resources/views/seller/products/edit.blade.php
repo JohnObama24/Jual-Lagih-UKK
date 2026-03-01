@@ -66,7 +66,7 @@
                     <label class="block text-xs font-semibold text-gray-600 mb-1.5">Foto Produk <span
                             class="text-gray-400 font-normal">(opsional – kosongkan jika tidak diganti)</span></label>
 
-                    {{-- Current image --}}
+                    
                     @if($product->image)
                         <div class="mb-3 flex items-center gap-3 p-3 bg-blue-50 rounded-xl border border-blue-100">
                             <img src="{{ asset('storage/' . $product->image) }}" alt="Foto saat ini"

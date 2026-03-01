@@ -24,7 +24,7 @@
                 @endphp
 
                 <div class="bg-white rounded-2xl border border-blue-100 shadow-sm overflow-hidden">
-                    {{-- Header --}}
+                    
                     <div class="flex flex-wrap items-center justify-between gap-3 px-5 py-3 border-b border-blue-50 bg-blue-50/40">
                         <div class="flex items-center flex-wrap gap-3">
                             <span class="text-xs font-semibold text-gray-600">Order #{{ $order->id }}</span>
@@ -46,7 +46,7 @@
                         </span>
                     </div>
 
-                    {{-- Items --}}
+                    
                     <div class="px-5 py-3 divide-y divide-gray-50">
                         @foreach($order->orderItems as $item)
                             <div class="flex items-center gap-3 py-2.5 first:pt-0 last:pb-0">
@@ -76,14 +76,14 @@
                         @endforeach
                     </div>
 
-                    {{-- Footer: total + status update --}}
+                    
                     <div class="px-5 py-3 border-t border-blue-50 bg-blue-50/20 flex flex-wrap items-center justify-between gap-3">
                         <div>
                             <span class="text-xs text-gray-500">Total Pesanan</span>
                             <p class="text-base font-bold text-blue-700">Rp{{ number_format($order->total_price, 0, ',', '.') }}</p>
                         </div>
 
-                        {{-- Status Update Form --}}
+                        
                         @if($order->status !== 'completed' && $order->status !== 'cancelled')
                             <form method="POST" action="{{ route('seller.orders.updateStatus', $order->id) }}"
                                 class="flex items-center gap-2">

@@ -1,7 +1,7 @@
-{{-- Usage: @include('buyer.components.product-card', ['product' => $product]) --}}
+
 <div
     class="bg-white rounded-2xl shadow-sm border border-blue-50 overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition duration-200 flex flex-col">
-    {{-- Image --}}
+    
     <a href="{{ route('buyer.product.show', $product->id) }}" class="block relative overflow-hidden bg-blue-50"
         style="padding-top: 75%;">
         @if($product->image)
@@ -15,7 +15,7 @@
                 </svg>
             </div>
         @endif
-        {{-- Stock badge --}}
+        
         @if($product->stock <= 5 && $product->stock > 0)
             <span class="absolute top-2 left-2 bg-orange-500 text-white text-xs font-semibold px-2 py-0.5 rounded-full">
                 Sisa {{ $product->stock }}
@@ -27,7 +27,7 @@
         @endif
     </a>
 
-    {{-- Info --}}
+    
     <div class="p-4 flex flex-col gap-2 flex-1">
         <a href="{{ route('buyer.product.show', $product->id) }}"
             class="text-sm font-semibold text-gray-800 hover:text-blue-600 transition line-clamp-2 leading-snug">

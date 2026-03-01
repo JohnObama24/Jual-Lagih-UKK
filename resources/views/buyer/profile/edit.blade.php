@@ -11,7 +11,7 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        {{-- Avatar Card --}}
+        
         <div class="lg:col-span-1">
             <div class="bg-white rounded-2xl border border-blue-100 p-6 shadow-sm text-center">
                 <div
@@ -47,10 +47,10 @@
             </div>
         </div>
 
-        {{-- Forms --}}
+        
         <div class="lg:col-span-2 flex flex-col gap-5">
 
-            {{-- Personal Info Form --}}
+            
             <div class="bg-white rounded-2xl border border-blue-100 p-6 shadow-sm">
                 <h3 class="text-base font-bold text-gray-800 mb-5 flex items-center gap-2">
                     <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,7 +112,7 @@
                 </form>
             </div>
 
-            {{-- Change Password Form --}}
+            
             <div class="bg-white rounded-2xl border border-blue-100 p-6 shadow-sm">
                 <h3 class="text-base font-bold text-gray-800 mb-5 flex items-center gap-2">
                     <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

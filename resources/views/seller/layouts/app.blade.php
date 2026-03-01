@@ -29,11 +29,11 @@
 
 <body class="bg-gray-50 min-h-screen flex flex-col">
 
-    {{-- ===== TOP NAVBAR ===== --}}
+    
     <nav class="bg-white border-b border-blue-100 shadow-sm sticky top-0 z-50 h-16 flex items-center">
         <div class="w-full px-4 sm:px-6 flex items-center justify-between">
 
-            {{-- Left: Hamburger + Logo --}}
+            
             <div class="flex items-center gap-3">
                 <button id="sidebar-toggle"
                     class="p-1.5 rounded-lg text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition lg:hidden">
@@ -55,7 +55,7 @@
                 </a>
             </div>
 
-            {{-- Right: User --}}
+            
             <div class="flex items-center gap-3">
                 <div class="text-right hidden sm:block">
                     <p class="text-sm font-semibold text-gray-800 leading-none">{{ auth()->user()->name }}</p>
@@ -82,7 +82,7 @@
 
     <div class="flex flex-1 min-h-0">
 
-        {{-- ===== SIDEBAR ===== --}}
+        
         <aside id="sidebar"
             class="fixed lg:sticky top-16 left-0 h-[calc(100vh-4rem)] w-60 bg-white border-r border-blue-100 shadow-sm z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-200 flex flex-col shrink-0 overflow-y-auto">
             <nav class="flex-1 px-3 py-5 space-y-1">
@@ -147,10 +147,10 @@
             </nav>
         </aside>
 
-        {{-- ===== MAIN ===== --}}
+        
         <div class="flex-1 min-w-0 flex flex-col">
 
-            {{-- Flash Messages --}}
+            
             <div class="px-4 sm:px-6 lg:px-8">
                 @if(session('success'))
                     <div
@@ -186,7 +186,7 @@
         </div>
     </div>
 
-    {{-- Sidebar overlay for mobile --}}
+    
     <div id="sidebar-overlay" class="fixed inset-0 bg-black/30 z-30 hidden lg:hidden"></div>
 
     <script>

@@ -4,7 +4,7 @@
 
 @section('content')
 
-    {{-- Breadcrumb --}}
+    
     <nav class="flex items-center gap-2 text-xs text-gray-400 mb-6">
         <a href="{{ route('buyer.home') }}" class="hover:text-blue-600 transition">Beranda</a>
         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -19,7 +19,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-        {{-- Product Image --}}
+        
         <div class="bg-blue-50 rounded-2xl overflow-hidden flex items-center justify-center min-h-72 relative shadow-sm">
             @if($product->image)
                 <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
@@ -44,7 +44,7 @@
             @endif
         </div>
 
-        {{-- Product Info --}}
+        
         <div class="flex flex-col gap-5">
             <div>
                 <h1 class="text-2xl font-bold text-gray-800 leading-tight mb-2">{{ $product->name }}</h1>
@@ -63,7 +63,7 @@
                 </span>
             </div>
 
-            {{-- Stock info --}}
+            
             <div class="flex items-center gap-2 text-sm">
                 <svg class="w-4 h-4 {{ $product->stock > 0 ? 'text-green-500' : 'text-red-400' }}" fill="currentColor"
                     viewBox="0 0 20 20">
@@ -82,13 +82,13 @@
                 </span>
             </div>
 
-            {{-- Description --}}
+            
             <div class="bg-blue-50 rounded-xl p-4">
                 <h3 class="text-sm font-semibold text-gray-700 mb-2">Deskripsi Produk</h3>
                 <p class="text-sm text-gray-600 leading-relaxed">{{ $product->description }}</p>
             </div>
 
-            {{-- Add to Cart --}}
+            
             @if($product->stock > 0)
                 <form method="POST" action="{{ route('cart.add', $product->id) }}" class="flex flex-col gap-3">
                     @csrf

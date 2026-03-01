@@ -10,7 +10,7 @@
                 class="font-medium text-blue-600">{{ auth()->user()->name }}</span>! Ini ringkasan toko kamu hari ini.</p>
     </div>
 
-    {{-- Stats Cards --}}
+    
     @php
         $sellerId = auth()->id();
         $totalProducts = auth()->user()->products()->count();
@@ -79,7 +79,7 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-        {{-- Recent Products --}}
+        
         <div class="bg-white rounded-2xl border border-blue-100 shadow-sm overflow-hidden">
             <div class="px-5 py-4 border-b border-blue-50 flex items-center justify-between">
                 <h2 class="text-sm font-bold text-gray-800">Produk Terbaru</h2>
@@ -118,7 +118,7 @@
             @endif
         </div>
 
-        {{-- Recent Orders --}}
+        
         <div class="bg-white rounded-2xl border border-blue-100 shadow-sm overflow-hidden">
             <div class="px-5 py-4 border-b border-blue-50 flex items-center justify-between">
                 <h2 class="text-sm font-bold text-gray-800">Pesanan Terbaru</h2>

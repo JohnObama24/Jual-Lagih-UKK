@@ -4,7 +4,7 @@
 
 @section('content')
 
-    {{-- Breadcrumb --}}
+    
     <nav class="flex items-center gap-2 text-xs text-gray-400 mb-6">
         <a href="{{ route('seller.products') }}" class="hover:text-blue-600 transition">Produk Saya</a>
         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

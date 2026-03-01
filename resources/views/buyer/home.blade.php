@@ -5,7 +5,7 @@
 
 @section('content')
 
-    {{-- Hero Banner --}}
+    
     <div
         class="relative bg-linear-to-br from-blue-600 via-blue-700 to-indigo-800 rounded-3xl overflow-hidden mb-10 shadow-xl">
         <div class="absolute inset-0 opacity-10">
@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    {{-- Stats Bar --}}
+    
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
         @php
             $totalProducts = \App\Models\Product::where('stock', '>', 0)->count();
@@ -69,7 +69,7 @@
         </div>
     </div>
 
-    {{-- Product Grid --}}
+    
     <div class="flex items-center justify-between mb-5">
         <h2 class="text-lg font-bold text-gray-800">Produk Terbaru</h2>
         <a href="{{ route('buyer.products') }}"

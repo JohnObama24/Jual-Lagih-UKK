@@ -12,7 +12,7 @@
 </head>
 <body class="bg-white text-slate-800">
 
-    {{-- Navbar --}}
+    
     <nav class="border-b border-slate-100 px-6 py-4">
         <div class="max-w-5xl mx-auto flex items-center justify-between">
             <a href="/" class="flex items-center gap-2">
@@ -32,7 +32,7 @@
         </div>
     </nav>
 
-    {{-- Hero --}}
+    
     <section class="max-w-5xl mx-auto px-6 py-20 text-center">
         <span class="inline-block text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-100 px-3 py-1 rounded-full mb-5">
             🎉 Marketplace Barang Bekas Terpercaya
@@ -45,7 +45,7 @@
             Temukan ribuan produk bekas berkualitas dengan harga terjangkau. Dari elektronik, fashion, hingga furnitur.
         </p>
 
-        {{-- Search --}}
+        
         <div class="flex flex-col sm:flex-row gap-2 max-w-lg mx-auto mb-10">
             <input type="text"
                    placeholder="Cari barang bekas..."
@@ -55,7 +55,7 @@
             </button>
         </div>
 
-        {{-- Stats --}}
+        
         <div class="flex justify-center gap-8 sm:gap-12">
             <div>
                 <p class="text-2xl font-bold text-slate-900">50K+</p>
@@ -74,7 +74,7 @@
         </div>
     </section>
 
-    {{-- Kategori --}}
+    
     <section class="bg-slate-50 py-16">
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="text-2xl font-bold text-slate-900 mb-8">Kategori</h2>
@@ -96,7 +96,7 @@
         </div>
     </section>
 
-    {{-- Cara Kerja --}}
+    
     <section class="py-16">
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="text-2xl font-bold text-slate-900 mb-10 text-center">Cara Kerja</h2>
@@ -119,7 +119,7 @@
         </div>
     </section>
 
-    {{-- CTA --}}
+    
     <section class="bg-blue-600 py-14">
         <div class="max-w-5xl mx-auto px-6 text-center">
             <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">Siap Mulai Jual atau Beli?</h2>
@@ -135,7 +135,7 @@
         </div>
     </section>
 
-    {{-- Footer --}}
+    
     <footer class="border-t border-slate-100 py-8 px-6">
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
             <div class="flex items-center gap-2">

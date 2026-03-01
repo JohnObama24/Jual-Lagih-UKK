@@ -4,13 +4,13 @@
 
 @section('content')
 
-    {{-- Header --}}
+    
     <div class="mb-6">
         <h1 class="text-2xl font-bold text-gray-800">Semua Produk</h1>
         <p class="text-sm text-gray-500 mt-1">Temukan produk yang kamu butuhkan</p>
     </div>
 
-    {{-- Search & Filter --}}
+    
     <div class="bg-white rounded-2xl border border-blue-100 p-4 mb-6 shadow-sm">
         <form method="GET" action="{{ route('buyer.products') }}" class="flex flex-col sm:flex-row gap-3">
             <div class="flex-1 relative">
@@ -39,7 +39,7 @@
         </form>
     </div>
 
-    {{-- Result info --}}
+    
     <div class="flex items-center justify-between mb-4">
         <p class="text-sm text-gray-500">
             {{ $products->total() }} produk ditemukan
@@ -49,7 +49,7 @@
         </p>
     </div>
 
-    {{-- Product Grid --}}
+    
     @if($products->count())
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             @foreach($products as $product)
@@ -57,7 +57,7 @@
             @endforeach
         </div>
 
-        {{-- Pagination --}}
+        
         <div class="mt-8 flex justify-center">
             {{ $products->appends(request()->query())->links() }}
         </div>

@@ -24,12 +24,12 @@
 
 <body class="bg-gray-50 min-h-screen flex flex-col">
 
-    {{-- ===== NAVBAR ===== --}}
+    
     <nav class="bg-white border-b border-blue-100 shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
 
-                {{-- Logo --}}
+                
                 <a href="{{ route('buyer.home') }}" class="flex items-center gap-2">
                     <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -40,7 +40,7 @@
                     <span class="text-xl font-bold text-blue-700 tracking-tight">Jual Lagih</span>
                 </a>
 
-                {{-- Desktop Nav --}}
+                
                 <div class="hidden md:flex items-center gap-6">
                     <a href="{{ route('buyer.home') }}"
                         class="text-sm font-medium {{ request()->routeIs('buyer.home') ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600' }} transition">
@@ -56,9 +56,9 @@
                     </a>
                 </div>
 
-                {{-- Right Side --}}
+                
                 <div class="flex items-center gap-3">
-                    {{-- Cart --}}
+                    
                     <a href="{{ route('cart.index') }}"
                         class="relative p-2 text-gray-600 hover:text-blue-600 transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,7 +80,7 @@
                         @endif
                     </a>
 
-                    {{-- User Dropdown --}}
+                    
                     <div class="relative dropdown">
                         <button
                             class="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition focus:outline-none">
@@ -95,7 +95,7 @@
                                     d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
-                        {{-- Dropdown Container with Hover Bridge --}}
+                        
                         <div class="dropdown-menu hidden absolute right-0 w-48 pt-2 z-50">
                             <div class="bg-white rounded-xl shadow-lg border border-gray-100 py-1">
                                 <a href="{{ route('buyer.profile.edit') }}"
@@ -130,7 +130,7 @@
                         </div>
                     </div>
 
-                    {{-- Mobile Hamburger --}}
+                    
                     <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-blue-600 transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -141,7 +141,7 @@
             </div>
         </div>
 
-        {{-- Mobile Menu --}}
+        
         <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-blue-50 px-4 py-3 space-y-2">
             <a href="{{ route('buyer.home') }}"
                 class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Beranda</a>
@@ -152,7 +152,7 @@
         </div>
     </nav>
 
-    {{-- Flash Messages --}}
+    
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         @if(session('success'))
             <div class="mt-4 bg-green-50 border border-green-200 text-green-700 text-sm px-4 py-3 rounded-xl flex items-center gap-2"
@@ -178,12 +178,12 @@
         @endif
     </div>
 
-    {{-- ===== MAIN CONTENT ===== --}}
+    
     <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
         @yield('content')
     </main>
 
-    {{-- ===== FOOTER ===== --}}
+    
     <footer class="bg-white border-t border-blue-100 mt-12">
         <div
             class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">

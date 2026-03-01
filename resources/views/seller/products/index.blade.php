@@ -58,7 +58,7 @@
                                             <p class="font-medium text-gray-800 truncate max-w-[180px]">{{ $product->name }}</p>
                                             <p class="text-xs text-gray-400 truncate max-w-[180px]">
                                                 {{ Str::limit($product->description, 40) }}</p>
-                                            {{-- Mobile: price + stock --}}
+                                            
                                             <p class="text-xs text-blue-700 font-semibold sm:hidden mt-0.5">
                                                 Rp{{ number_format($product->price, 0, ',', '.') }}
                                                 <span class="text-gray-400 font-normal ml-1">• Stok: {{ $product->stock }}</span>

@@ -23,7 +23,7 @@
                     $sc = $statusConfig[$order->status] ?? ['label' => $order->status, 'bg' => 'bg-gray-100', 'text' => 'text-gray-600', 'dot' => 'bg-gray-400'];
                 @endphp
                 <div class="bg-white rounded-2xl border border-blue-100 shadow-sm overflow-hidden">
-                    {{-- Order Header --}}
+                    
                     <div class="flex items-center justify-between px-5 py-3 border-b border-blue-50 bg-blue-50/50">
                         <div class="flex items-center gap-3">
                             <span class="text-xs font-semibold text-gray-500">Order #{{ $order->id }}</span>
@@ -37,7 +37,7 @@
                         </span>
                     </div>
 
-                    {{-- Order Items --}}
+                    
                     <div class="px-5 py-4 divide-y divide-gray-50">
                         @foreach($order->orderItems as $item)
                             <div class="flex items-center gap-3 py-3 first:pt-0 last:pb-0">
@@ -69,7 +69,7 @@
                         @endforeach
                     </div>
 
-                    {{-- Order Footer --}}
+                    
                     <div class="px-5 py-3 border-t border-blue-50 bg-blue-50/30 flex items-center justify-between">
                         <span class="text-xs text-gray-500">
                             {{ $order->orderItems->count() }} produk
@@ -85,7 +85,7 @@
             @endforeach
         </div>
 
-        {{-- Pagination --}}
+        
         <div class="mt-8 flex justify-center">
             {{ $orders->links() }}
         </div>

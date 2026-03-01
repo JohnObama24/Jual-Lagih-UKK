@@ -12,11 +12,11 @@
     @if($cart && $cart->cartItems->count())
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-            {{-- Cart Items --}}
+            
             <div class="lg:col-span-2 flex flex-col gap-3">
                 @foreach($cart->cartItems as $item)
                     <div class="bg-white rounded-2xl border border-blue-100 p-4 shadow-sm flex gap-4 items-start">
-                        {{-- Product Image --}}
+                        
                         <div class="w-20 h-20 bg-blue-50 rounded-xl overflow-hidden shrink-0">
                             @if($item->product->image)
                                 <img src="{{ asset('storage/' . $item->product->image) }}" alt="{{ $item->product->name }}"
@@ -31,7 +31,7 @@
                             @endif
                         </div>
 
-                        {{-- Info --}}
+                        
                         <div class="flex-1 min-w-0">
                             <a href="{{ route('buyer.product.show', $item->product->id) }}"
                                 class="text-sm font-semibold text-gray-800 hover:text-blue-600 transition truncate block">
@@ -42,9 +42,9 @@
                                 Rp{{ number_format($item->product->price, 0, ',', '.') }}
                             </p>
 
-                            {{-- Quantity & Remove --}}
+                            
                             <div class="flex items-center gap-3 mt-3">
-                                {{-- Decrease --}}
+                                
                                 <form method="POST" action="{{ route('cart.update', $item->id) }}">
                                     @csrf @method('PUT')
                                     <input type="hidden" name="quantity" value="{{ max(1, $item->quantity - 1) }}">
@@ -59,7 +59,7 @@
 
                                 <span class="w-8 text-center text-sm font-semibold text-gray-700">{{ $item->quantity }}</span>
 
-                                {{-- Increase --}}
+                                
                                 <form method="POST" action="{{ route('cart.update', $item->id) }}">
                                     @csrf @method('PUT')
                                     <input type="hidden" name="quantity" value="{{ $item->quantity + 1 }}">
@@ -77,7 +77,7 @@
                                     = Rp{{ number_format($item->product->price * $item->quantity, 0, ',', '.') }}
                                 </span>
 
-                                {{-- Remove --}}
+                                
                                 <form method="POST" action="{{ route('cart.remove', $item->id) }}" class="ml-auto">
                                     @csrf @method('DELETE')
                                     <button type="submit" class="text-red-400 hover:text-red-600 transition p-1"
@@ -94,7 +94,7 @@
                 @endforeach
             </div>
 
-            {{-- Order Summary --}}
+            
             <div class="lg:col-span-1">
                 <div class="bg-white rounded-2xl border border-blue-100 p-5 shadow-sm sticky top-24">
                     <h2 class="text-base font-bold text-gray-800 mb-4">Ringkasan Pesanan</h2>
@@ -139,7 +139,7 @@
         </div>
 
     @else
-        {{-- Empty Cart --}}
+        
         <div class="bg-white rounded-2xl border border-blue-100 p-16 text-center shadow-sm">
             <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg class="w-10 h-10 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
