@@ -5,45 +5,27 @@
 
 @section('content')
 
-    
-    <div
-        class="relative bg-linear-to-br from-blue-600 via-blue-700 to-indigo-800 rounded-3xl overflow-hidden mb-10 shadow-xl">
-        <div class="absolute inset-0 opacity-10">
-            <svg class="w-full h-full" viewBox="0 0 400 200" fill="none">
-                <circle cx="350" cy="-30" r="120" fill="white" />
-                <circle cx="30" cy="200" r="80" fill="white" />
-            </svg>
-        </div>
-        <div class="relative px-8 py-12 sm:px-14 sm:py-16 flex flex-col sm:flex-row items-center justify-between gap-8">
-            <div class="text-center sm:text-left">
-                <h1 class="text-3xl sm:text-4xl font-bold text-white leading-tight mb-3">
-                    Selamat datang, <br class="hidden sm:block">
-                    <span class="text-blue-200">{{ auth()->user()->name }}!</span>
-                </h1>
-                <p class="text-blue-100 text-sm sm:text-base mb-6 max-w-md">
-                    Temukan ribuan produk berkualitas dengan harga terbaik. Belanja sekarang dan dapatkan penawaran
-                    eksklusif!
-                </p>
-                <a href="{{ route('buyer.products') }}"
-                    class="inline-flex items-center gap-2 bg-white text-blue-700 font-semibold px-6 py-3 rounded-xl hover:bg-blue-50 transition shadow-md text-sm">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                    Jelajahi Produk
-                </a>
-            </div>
-            <div
-                class="hidden sm:flex w-40 h-40 bg-white/10 backdrop-blur rounded-2xl items-center justify-center shrink-0">
-                <svg class="w-20 h-20 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"
-                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                </svg>
-            </div>
+
+    <div class="relative bg-blue-600 rounded-2xl overflow-hidden mb-8 shadow-sm group">
+        <div class="absolute inset-0 bg-linear-to-r from-blue-700 to-transparent z-10"></div>
+        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2070&auto=format&fit=crop"
+             alt="Promo Banner"
+             class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition duration-700">
+        <div class="relative z-20 px-8 py-10 sm:py-16 sm:px-12 flex flex-col justify-center h-full max-w-lg">
+            <span class="inline-block px-3 py-1 bg-yellow-400 text-yellow-900 text-xs font-bold rounded-full mb-4 w-max">PROMO SPESIAL</span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-4">
+                Diskon Gede-Gedean<br>Barang Bekas Rasa Baru!
+            </h1>
+            <p class="text-blue-100 text-sm sm:text-base mb-6 max-w-sm">
+                Temukan ribuan produk pilihan dengan kualitas terjamin. Jangan sampai kehabisan!
+            </p>
+            <a href="{{ route('buyer.products') }}"
+                class="inline-flex items-center justify-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-lg hover:bg-gray-50 transition shadow-sm w-max text-sm">
+                Belanja Sekarang
+            </a>
         </div>
     </div>
 
-    
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
         @php
             $totalProducts = \App\Models\Product::where('stock', '>', 0)->count();
@@ -69,7 +51,7 @@
         </div>
     </div>
 
-    
+
     <div class="flex items-center justify-between mb-5">
         <h2 class="text-lg font-bold text-gray-800">Produk Terbaru</h2>
         <a href="{{ route('buyer.products') }}"
